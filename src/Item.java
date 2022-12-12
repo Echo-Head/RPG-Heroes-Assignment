@@ -1,10 +1,7 @@
 public abstract class Item {
-    String ItemName;
+    String itemName;
     int requiredLevel;
 
-    public enum Slot {
-        WEAPON, HEAD, BODY, LEGS
+    public Item(String itemName) {
     }
-
-
 }
