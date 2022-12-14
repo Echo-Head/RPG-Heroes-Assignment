@@ -2,20 +2,18 @@ import Enums.ArmorType;
 import Enums.Slot;
 
 public class Armor extends Item {
-    private HeroAttribute armorAttribute;
-    private ArmorType armorType;
+    private final HeroAttribute armorAttribute;
+    private final ArmorType armorType;
 
     // Weapon constructor
-    public Armor(String itemName, ArmorType armorType, int requiredLevel, Slot slot, int STR, int DEX, int INT) {
+    public Armor(String itemName, ArmorType armorType, int requiredLevel, Slot slot, int strength, int dexterity, int intelligence) {
         super(itemName, requiredLevel, slot);
         this.armorType = armorType;
-        this.armorAttribute = new HeroAttribute(STR, DEX, INT);
+        this.armorAttribute = new HeroAttribute(strength, dexterity, intelligence);
     }
-    // Getter and setter methods for the armorAttribute property
-    /*private int getArmorAttribute() {
-        return this.armorAttribute;
+    // Getters
+    public HeroAttribute getArmorAttribute() {
+        return armorAttribute;
     }
-    private void setArmorAttribute(int armorAttribute) {
-        this.armorAttribute = armorAttribute;
-    }*/
+    public ArmorType getArmorType() { return armorType; }
 }

@@ -3,6 +3,7 @@ import Enums.WeaponType;
 import Enums.Slot;
 
 public class Main {
+        public static void main(String[] args) {
 
         // Classes
         Mage mage = new Mage("Gandalf", 9, 1, 1, 8);
@@ -24,4 +25,6 @@ public class Main {
         Weapon staff = new Weapon("Staff", WeaponType.STAFF, 13, 1);
         Weapon wand = new Weapon("Wand", WeaponType.WAND, 10, 6);
         Weapon bow = new Weapon("Bow", WeaponType.BOW, 11, 7);
+
+        }
 }

@@ -9,10 +9,12 @@ public class HeroAttribute {
         this.dexterity = dexterity;
         this.intelligence = intelligence;
     }
-
-    public int getStrength() {
-        return strength;
+    public void addAttribute(int strength, int dexterity, int intelligence) {
+        this.strength += strength;
+        this.dexterity += dexterity;
+        this.intelligence += intelligence;
     }
+    public int getStrength() { return strength; }
 
     public int getDexterity() {
         return dexterity;
@@ -20,23 +22,5 @@ public class HeroAttribute {
 
     public int getIntelligence() {
         return intelligence;
-    }
-
-    public void addAttribute(int strength, int dexterity, int intelligence) {
-        this.strength += strength;
-        this.dexterity += dexterity;
-        this.intelligence += intelligence;
-    }
-
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
-
-    public void setDexterity(int dexterity) {
-        this.dexterity = dexterity;
-    }
-
-    public void setIntelligence(int intelligence) {
-        this.intelligence = intelligence;
     }
 }
