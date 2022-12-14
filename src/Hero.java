@@ -1,73 +1,75 @@
 import java.util.*;
 import Enums.Slot;
+import Exceptions.InvalidArmorException;
+import Exceptions.InvalidWeaponException;
 
 public abstract class Hero {
-
     private String name;
-    private String heroClass;
-    private int strength;
-    private int dexterity;
-    private int intelligence;
-    private final int startLevel = 1;
-    private int startXP;
-    private int levelAttributes;
+    private int level;
+    private final HeroAttribute levelAttributes;
     private int damage;
-    HashMap<Slot, Item> equipment = new HashMap<Slot, Item>();
+    private HashMap<Slot, Item> equipment = new HashMap<Slot, Item>();
     List<String> validWeaponTypes;
     List<String> validArmorTypes;
 
-    public Hero(String name) {
+    // Hero constructor
+    public Hero(String name, int strength, int dexterity, int intelligence) {
         this.name = name;
-
+        this.level = 1;
+        levelAttributes = new HeroAttribute(strength, dexterity, intelligence);
         // Initialize the validWeaponTypes & validArmorTypes list
         this.validWeaponTypes = new ArrayList<>();
         this.validArmorTypes = new ArrayList<>();
+        // Initialize equipment to null on new hero
+        for (Slot slot : Slot.values()) {
+            equipment.put(slot, null);
+        }
     }
-
     // createHero method
-    public void createHero(String name) {
-    }
-
+    public void createHero(String name) {}
     // Getter and setter methods for the name property
     public String getName() {
         return this.name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
+    public int getLevel() {
+        return level;
+    }
     // levelUp method
     public void levelUp() {
-        this.startLevel += 1;
+        level++;
     }
-
+    public void getEquipment () {
+        equipment.forEach(((slot, item) -> System.out.println("Slot " + slot + " Item" + item)));
+    }
     // equipWeapon method
-    public void equipWeapon(String itemName) {
-        equip("weapon", itemName);
+    public void equipWeapon(Weapon weapon) throws InvalidWeaponException {
+        if (level < weapon.getRequiredLevel()) {
+            throw new InvalidWeaponException( level, weapon.getRequiredLevel());
+        }
     }
-
     // equipArmor method
-    public void equipArmor(String itemName) {
-        equip("armor", itemName);
+    public void equipArmor(Armor armor) throws InvalidArmorException {
+        if (level < armor.getRequiredLevel()) {
+            throw new InvalidArmorException(level, armor.getRequiredLevel());
+        }
+
     }
-
     // damage method
-    public void damage() {}
-
+    public void damage() {
+        damage = weapon.getWeaponDamage() * (1 + HeroAttribute / 100);
+    }
     // totalAttributes method
-    public void totalAttributes() {}
-
+    public HeroAttribute totalAttributes() {
+    }
     // display method
-    public String display() {
+    public void display(Hero hero) {
         StringBuilder heroDisplay = new StringBuilder();
-        heroDisplay.append("Name: " + name + "\n");
-        heroDisplay.append("Class: " + heroClass + "\n");
-        heroDisplay.append("Level: " + startLevel + "\n");
-        heroDisplay.append("Total strength: " + strength + "\n");
-        heroDisplay.append("Total dexterity: " + dexterity + "\n");
-        heroDisplay.append("Total intelligence: " + intelligence + "\n");
-        heroDisplay.append("Total damage: " + damage + "\n");
-        return heroDisplay.toString();
+        heroDisplay.append("Name: " + hero.getName() + "\n");
+        heroDisplay.append("Class: " + hero.getClass() + "\n");
+        heroDisplay.append("Level: " + hero.getLevel() + "\n");
+        System.out.println(heroDisplay.toString());
     }
 }

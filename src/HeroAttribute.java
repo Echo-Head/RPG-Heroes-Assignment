@@ -11,21 +11,32 @@ public class HeroAttribute {
     }
 
     public int getStrength() {
-        return this.strength;
+        return strength;
     }
 
     public int getDexterity() {
-        return this.dexterity;
+        return dexterity;
     }
 
     public int getIntelligence() {
-        return this.intelligence;
+        return intelligence;
     }
 
-    public HeroAttribute add(HeroAttribute other) {
-        int strength = this.strength + other.strength;
-        int dexterity = this.dexterity + other.dexterity;
-        int intelligence = this.intelligence + other.intelligence;
-        return new HeroAttribute(strength, dexterity, intelligence);
+    public void addAttribute(int strength, int dexterity, int intelligence) {
+        this.strength += strength;
+        this.dexterity += dexterity;
+        this.intelligence += intelligence;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public void setDexterity(int dexterity) {
+        this.dexterity = dexterity;
+    }
+
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
     }
 }
