@@ -38,16 +38,18 @@ public abstract class Hero {
     public int getLevel() {
         return level;
     }
-    // levelUp method
-    public void getEquipment () {
+    /*public void getEquipment () {
         equipment.forEach(((slot, item) -> System.out.println("Slot " + slot + " Item" + item)));
-    }
+    }*/
     // equipWeapon method
     public void equipWeapon(Weapon weapon) throws InvalidWeaponException {
         if (level >= weapon.getRequiredLevel()) {
-
-        } else
+            if (!validWeaponTypes.contains(weapon.getWeaponType())) {
             throw new InvalidWeaponException( level, weapon.getRequiredLevel());
+            }
+        } else {
+            equipment.put(Slot.WEAPON, weapon);
+        }
     }
     // equipArmor method
     public void equipArmor(Armor armor) throws InvalidArmorException {
