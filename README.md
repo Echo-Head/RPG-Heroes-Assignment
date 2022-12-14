@@ -9,9 +9,9 @@ Armors can be assigned to either the Head, Body or Legs slot.
 
 Currently there are also 7 different type of weapons: melee, magic and ranged weapons. Every weapon type gets boost to it's attack damage from it's wielders stats, melee weapons get boost from strength, ranged weapons from dexterity and magic weapons from intelligence.
 
-Armor and Weapon class inherit from an abstract Item class. Hero classes (mage, ranger, warrior) inherit from an abstract Hero class. There is currently functionality for creating items, creating heroes, equpping armors and weapons to heros, leveling up and attacking.
+Armor and Weapon class inherit from an abstract Item class. Hero classes (Mage, Ranger, Rogue, Warrior) inherit from an abstract Hero class. There is currently functionality for creating items, creating heroes, equipping armors and weapons to heroes, leveling up and attacking.
 
-Currently the GameInterface class of the program is creating some characters, weapons and items and demostrating the functionality by printing them out.
+Currently the GameInterface class of the program is creating some characters, weapons and items and demonstrating the functionality by printing them out.
 
 ## Usage
 To construct a new hero (replace Mage with Warrior, Ranger or Rogue):
