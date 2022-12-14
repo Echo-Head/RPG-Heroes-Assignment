@@ -4,8 +4,8 @@ Noroff Java Fullstack RPGHeroes task. Java program imitating RPG game character 
 ## About
 The program has functionality for armors, weapons and heroes. 3 different hero classes are implemented: mage, warrior and ranger. Every hero has attributes such as strenght and dexterity, which get scaled when leveling up.
 
-Program has implementation for 3 different type of armors currently: cloth, leather and plate armors.
-Armors can be either head armor, body armor or leg armor. Every armor slot has a scale value assosicated with it, meaning that e.g. head slot scales armors stats down by 60%.
+Program has implementation for 4 different type of armors currently: Cloth, Leather, Mail and Plate armors.
+Armors can be assigned to either the Head, Body or Legs slot.
 
 Currently there are also 7 different type of weapons: melee, magic and ranged weapons. Every weapon type gets boost to it's attack damage from it's wielders stats, melee weapons get boost from strength, ranged weapons from dexterity and magic weapons from intelligence.
 
