@@ -14,11 +14,8 @@ public class Weapon extends Item {
     public WeaponType getWeaponType() {
         return weaponType;
     }
-    // getter and setter methods for the weaponDamage property
+    // Getter for the weaponDamage property
     private int getWeaponDamage() {
         return this.weaponDamage;
-    }
-    private void setWeaponDamage(int weaponDamage) {
-        this.weaponDamage = weaponDamage;
     }
 }

@@ -45,7 +45,7 @@ public abstract class Hero {
     public void equipWeapon(Weapon weapon) throws InvalidWeaponException {
         if (level >= weapon.getRequiredLevel()) {
             if (!validWeaponTypes.contains(weapon.getWeaponType())) {
-            throw new InvalidWeaponException( level, weapon.getRequiredLevel());
+            throw new InvalidWeaponException( level, Item.getRequiredLevel, weapon.getWeaponType().name());
             }
         } else {
             equipment.put(Slot.WEAPON, weapon);
@@ -54,9 +54,10 @@ public abstract class Hero {
     // equipArmor method
     public void equipArmor(Armor armor) throws InvalidArmorException {
         if (level >= armor.getRequiredLevel()) {
-
-        } else
+            if (!validArmorTypes.contains(armor.getArmorType())) {
             throw new InvalidArmorException(level, armor.getRequiredLevel());
+            }
+        } else
 
     }
     // damage method

@@ -1,9 +1,9 @@
 import Enums.Slot;
 
 public abstract class Item {
-    private String itemName;
-    private int requiredLevel;
-    private Slot slot;
+    private final String itemName;
+    private final int requiredLevel;
+    private final Slot slot;
 
     public Item(String itemName, int requiredLevel, Slot slot) {
         this.itemName = itemName;
