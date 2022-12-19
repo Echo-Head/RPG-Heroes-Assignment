@@ -4,8 +4,8 @@ import Enums.WeaponType;
 import Enums.Slot;
 
 public class Weapon extends Item {
-    private int weaponDamage;
-    private WeaponType weaponType;
+    private final int weaponDamage;
+    private final WeaponType weaponType;
     // Weapon constructor
     public Weapon(String itemName, WeaponType weaponType, int weaponDamage, int requiredLevel) {
         super(itemName, requiredLevel, Slot.WEAPON);

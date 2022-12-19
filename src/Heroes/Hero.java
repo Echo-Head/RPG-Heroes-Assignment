@@ -12,12 +12,16 @@ import Items.Weapon;
 
 public abstract class Hero {
 
-    // Variables
-    private String name;
+    // Fields
+    private final String name;
     private int level;
+
     private final HeroAttribute levelAttributes;
-    private final HashMap<Slot, Item> equipment = new HashMap<Slot, Item>();
+
+    private final HashMap<Slot, Item> equipment = new HashMap<>();
+
     private final HashSet<WeaponType> validWeaponTypes = new HashSet<>();
+
     private final HashSet<ArmorType> validArmorTypes = new HashSet<>();
 
     // Hero constructor
@@ -30,18 +34,24 @@ public abstract class Hero {
             equipment.put(slot, null);
         }
     }
+
     // Getters
     public String getName() {
         return name;
     }
+
     public int getLevel() {
         return level;
     }
+
    public HashMap<Slot, Item> getEquipment() {
         return equipment;
     }
+
     public HashSet<WeaponType> getValidWeaponTypes() { return validWeaponTypes;}
+
     public HashSet<ArmorType> getValidArmorTypes() { return validArmorTypes;}
+
     public HeroAttribute getTotalAttributes() {
         HeroAttribute totalAttribute = new HeroAttribute(levelAttributes.getStrength(), levelAttributes.getDexterity(), levelAttributes.getIntelligence());
         for (Map.Entry<Slot, Item> entry : equipment.entrySet()) {
@@ -56,13 +66,13 @@ public abstract class Hero {
         return totalAttribute;
     }
 
-    // Public methods
+    // Public facing methods
     public void levelUp(int strength, int dexterity, int intelligence) {
         level++;
         levelAttributes.addAttribute(strength, dexterity, intelligence);
     }
 
-    public void equipWeapon(Weapon weapon) throws InvalidWeaponException {
+    public void equip(Weapon weapon) throws InvalidWeaponException {
         if (level >= weapon.getRequiredLevel()) {
             if (!validWeaponTypes.contains(weapon.getWeaponType())) {
             throw new InvalidWeaponException(getClass().getSimpleName(), weapon.getWeaponType().name(), level, weapon.getRequiredLevel());
@@ -71,7 +81,8 @@ public abstract class Hero {
             equipment.put(Slot.WEAPON, weapon);
         }
     }
-    public void equipArmor(Armor armor) throws InvalidArmorException {
+
+    public void equip(Armor armor) throws InvalidArmorException {
         if (level >= armor.getRequiredLevel()) {
             if (!validArmorTypes.contains(armor.getArmorType())) {
             throw new InvalidArmorException(getClass().getSimpleName(), armor.getArmorType().name(), level, armor.getRequiredLevel());
@@ -80,21 +91,30 @@ public abstract class Hero {
             equipment.put(armor.getSlot(), armor);
         }
     }
-    public int damage() {
 
+    public int damage() {
+        String className = getClass().getSimpleName();
+        int multiplier =
+                "Warrior".equals(className) ? getTotalAttributes().getStrength() :
+                        "Mage".equals(className) ? getTotalAttributes().getIntelligence() :
+                                ("Ranger".equals(className) || "Rogue".equals(className)) ? getTotalAttributes().getDexterity() :
+                                        1;
+
+        Weapon weapon = (Weapon) equipment.get(Slot.WEAPON);
+        int baseExpression = 1 + multiplier / 100;
+        return weapon == null ? baseExpression : weapon.getWeaponDamage() * baseExpression;
     }
 
-
-    public void display(Hero hero) {
+    public void display() {
         StringBuilder heroDisplay = new StringBuilder();
-        heroDisplay.append("Name: " + hero.getName() + "\n");
-        heroDisplay.append("Class: " + hero.getClass() + "\n");
-        heroDisplay.append("Level: " + hero.getLevel() + "\n");
-        heroDisplay.append("Current Equipment: " + hero.getEquipment() + "\n");
-        heroDisplay.append("Total Strength: " + hero.getTotalAttributes().getStrength() + "\n");
-        heroDisplay.append("Total Dexterity: " + hero.getTotalAttributes().getDexterity() + "\n");
-        heroDisplay.append("Total Intelligence: " + hero.getTotalAttributes().getIntelligence() + "\n");
-        heroDisplay.append("Damage: " + hero.damage());
+        heroDisplay.append("Name: " + getName() + "\n");
+        heroDisplay.append("Class: " + getClass().getSimpleName() + "\n");
+        heroDisplay.append("Level: " + getLevel() + "\n");
+        heroDisplay.append("Current Equipment: " + getEquipment() + "\n");
+        heroDisplay.append("Total Strength: " + getTotalAttributes().getStrength() + "\n");
+        heroDisplay.append("Total Dexterity: " + getTotalAttributes().getDexterity() + "\n");
+        heroDisplay.append("Total Intelligence: " + getTotalAttributes().getIntelligence() + "\n");
+        heroDisplay.append("Damage: " + damage());
         System.out.println(heroDisplay.toString());
     }
 }

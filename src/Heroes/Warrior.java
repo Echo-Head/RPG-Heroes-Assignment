@@ -10,5 +10,9 @@ public class Warrior extends Hero {
         getValidWeaponTypes().addAll(Arrays.asList(WeaponType.AXE, WeaponType.HAMMER, WeaponType.SWORD));
         getValidArmorTypes().addAll(Arrays.asList(ArmorType.MAIL, ArmorType.PLATE));
     }
+
+    public void levelUp() {
+        levelUp(3, 2,1);
+    }
 }
 

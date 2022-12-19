@@ -1,5 +1,5 @@
 # RPGHeroes
-Noroff Java Fullstack RPGHeroes task. Java program imitating RPG game character and item functionality.
+Noroff Java Fullstack RPG Heroes assignment. Java program imitating RPG game character and item functionality.
 
 ## About
 The program has functionality for armors, weapons and heroes. 3 different hero classes are implemented: mage, warrior and ranger. Every hero has attributes such as strenght and dexterity, which get scaled when leveling up.

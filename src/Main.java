@@ -33,5 +33,10 @@ public class Main {
         Weapon staff = new Weapon("Staff", WeaponType.STAFF, 13, 1);
         Weapon wand = new Weapon("Wand", WeaponType.WAND, 10, 6);
         Weapon bow = new Weapon("Bow", WeaponType.BOW, 11, 7);
+
+        mage.equip(wand);
+        mage.equip(clothHat);
+        mage.display();
+        System.out.println(mage.getEquipment());
         }
 }

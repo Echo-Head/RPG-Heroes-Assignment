@@ -11,4 +11,8 @@ public class Mage extends Hero {
         getValidWeaponTypes().addAll(Arrays.asList(WeaponType.STAFF, WeaponType.WAND));
         getValidArmorTypes().add(ArmorType.CLOTH);
     }
+
+    public void levelUp() {
+        levelUp(1, 1,5);
+    }
 }

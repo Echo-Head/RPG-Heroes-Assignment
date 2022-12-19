@@ -10,4 +10,8 @@ public class Ranger extends Hero {
         getValidWeaponTypes().add(WeaponType.BOW);
         getValidArmorTypes().addAll(Arrays.asList(ArmorType.LEATHER, ArmorType.MAIL));
     }
+
+    public void levelUp() {
+        levelUp(1, 5,1);
+    }
 }
