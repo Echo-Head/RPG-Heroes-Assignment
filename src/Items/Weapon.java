@@ -1,8 +1,9 @@
+package Items;
+
 import Enums.WeaponType;
 import Enums.Slot;
 
 public class Weapon extends Item {
-
     private int weaponDamage;
     private WeaponType weaponType;
     // Weapon constructor
@@ -11,11 +12,12 @@ public class Weapon extends Item {
         this.weaponDamage = weaponDamage;
         this.weaponType = weaponType;
     }
+
+    // Getters
     public WeaponType getWeaponType() {
         return weaponType;
     }
-    // Getter for the weaponDamage property
-    private int getWeaponDamage() {
-        return this.weaponDamage;
+    public int getWeaponDamage() {
+        return weaponDamage;
     }
 }

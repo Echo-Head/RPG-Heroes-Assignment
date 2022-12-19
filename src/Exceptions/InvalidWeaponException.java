@@ -1,11 +1,7 @@
 package Exceptions;
 
-import Enums.WeaponType;
-
-
 public class InvalidWeaponException extends Exception {
-    public InvalidWeaponException(int requiredLevel) {
-        super("You don't  meet the level requirement of: " + requiredLevel + "and/or the type requirement of: " + hero.validWeaponTypes + ".");
-
+    public InvalidWeaponException(String hero, String weapon, int level, int requiredLevel) {
+        super("Your level " + level + hero + " cannot equip a level " + requiredLevel + weapon + "!");
     }
 }

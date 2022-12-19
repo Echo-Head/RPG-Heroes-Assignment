@@ -1,15 +1,23 @@
 import Enums.ArmorType;
 import Enums.WeaponType;
 import Enums.Slot;
+import Exceptions.InvalidArmorException;
+import Exceptions.InvalidWeaponException;
+import Heroes.Mage;
+import Heroes.Ranger;
+import Heroes.Rogue;
+import Heroes.Warrior;
+import Items.Armor;
+import Items.Weapon;
 
 public class Main {
-        public static void main(String[] args) {
+        public static void main(String[] args) throws InvalidWeaponException, InvalidArmorException {
 
         // Classes
-        Mage mage = new Mage("Gandalf", 9, 1, 1, 8);
-        Warrior warrior = new Warrior("Aragorn", 4, 5, 2, 1);
-        Rogue rogue = new Rogue("Frodo", 2, 2, 6, 1);
-        Ranger ranger = new Ranger("Legolas", 3, 1, 7, 1);
+        Mage mage = new Mage("Gandalf");
+        Warrior warrior = new Warrior("Aragorn");
+        Rogue rogue = new Rogue("Frodo");
+        Ranger ranger = new Ranger("Legolas");
 
         // Armor
         Armor chestPlate = new Armor("Chest Plate", ArmorType.PLATE, 20, Slot.BODY, 10, 5, 9);
@@ -25,6 +33,5 @@ public class Main {
         Weapon staff = new Weapon("Staff", WeaponType.STAFF, 13, 1);
         Weapon wand = new Weapon("Wand", WeaponType.WAND, 10, 6);
         Weapon bow = new Weapon("Bow", WeaponType.BOW, 11, 7);
-
         }
 }

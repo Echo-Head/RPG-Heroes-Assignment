@@ -1,11 +1,13 @@
+package Items;
+
 import Enums.ArmorType;
 import Enums.Slot;
+import Heroes.HeroAttribute;
 
 public class Armor extends Item {
     private final HeroAttribute armorAttribute;
     private final ArmorType armorType;
-
-    // Weapon constructor
+    // Items.Armor constructor
     public Armor(String itemName, ArmorType armorType, int requiredLevel, Slot slot, int strength, int dexterity, int intelligence) {
         super(itemName, requiredLevel, slot);
         this.armorType = armorType;
