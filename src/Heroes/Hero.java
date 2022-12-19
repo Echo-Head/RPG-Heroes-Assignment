@@ -92,16 +92,16 @@ public abstract class Hero {
         }
     }
 
-    public int damage() {
+    public double damage() {
         String className = getClass().getSimpleName();
-        int multiplier =
+        double multiplier =
                 "Warrior".equals(className) ? getTotalAttributes().getStrength() :
                         "Mage".equals(className) ? getTotalAttributes().getIntelligence() :
                                 ("Ranger".equals(className) || "Rogue".equals(className)) ? getTotalAttributes().getDexterity() :
                                         1;
 
         Weapon weapon = (Weapon) equipment.get(Slot.WEAPON);
-        int baseExpression = 1 + multiplier / 100;
+        double baseExpression = 1.0 + multiplier / 100.0;
         return weapon == null ? baseExpression : weapon.getWeaponDamage() * baseExpression;
     }
 
