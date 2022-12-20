@@ -14,7 +14,7 @@ public class Main {
         public static void main(String[] args) throws InvalidWeaponException, InvalidArmorException {
 
         // Classes
-        Mage mage = new Mage("Gandalf");
+        Mage myMage = new Mage("Gandalf");
         Warrior warrior = new Warrior("Aragorn");
         Rogue rogue = new Rogue("Frodo");
         Ranger ranger = new Ranger("Legolas");
@@ -34,9 +34,9 @@ public class Main {
         Weapon wand = new Weapon("Wand", WeaponType.WAND, 10, 6);
         Weapon bow = new Weapon("Bow", WeaponType.BOW, 11, 7);
 
-        mage.equip(wand);
-        mage.equip(clothHat);
-        mage.display();
-        System.out.println(mage.getEquipment());
+        myMage.equip(wand);
+        myMage.equip(clothHat);
+        myMage.display();
+        System.out.println(myMage.getEquipment());
         }
 }

@@ -1,30 +1,35 @@
 # RPGHeroes
 Noroff Java Fullstack RPG Heroes assignment. Java program imitating RPG game character and item functionality.
 
-## About
-The program has functionality for armors, weapons and heroes. 3 different hero classes are implemented: mage, warrior and ranger. Every hero has attributes such as strenght and dexterity, which get scaled when leveling up.
+## Table of Contents
 
-Program has implementation for 4 different type of armors currently: Cloth, Leather, Mail and Plate armors.
+- [About](#about)
+- [Usage](#usage)
+
+## About
+The program has functionality to construct armors, weapons and heroes. 4 different hero classes are implemented: Mage, Ranger, Rogue and Warrior. Every hero has attributes such as Strength, Dexterity and Intelligence, which increase when leveling up.
+
+The program has implementation for 4 different armor types: Cloth, Leather, Mail and Plate armors.
 Armors can be assigned to either the Head, Body or Legs slot.
 
-Currently there are also 7 different type of weapons: melee, magic and ranged weapons. Every weapon type gets boost to it's attack damage from it's wielders stats, melee weapons get boost from strength, ranged weapons from dexterity and magic weapons from intelligence.
+Currently there are also 7 different weapon types: Axe, Bow, Dagger, Hammer, Staff, Sword and Wand. Every weapon has a level requirement and damage attribute.
 
-Items.Armor and Items.Weapon class inherit from an abstract Items.Item class. Heroes.Hero classes (Heroes.Mage, Heroes.Ranger, Heroes.Rogue, Heroes.Warrior) inherit from an abstract Heroes.Hero class. There is currently functionality for creating items, creating heroes, equipping armors and weapons to heroes, leveling up and attacking.
+The Armor and Weapon classes inherit from an abstract Items class. Hero classes (Mage, Ranger, Rogue, Warrior) inherit from an abstract Hero class. There is currently functionality for creating items, creating heroes, equipping armors and weapons to heroes and leveling up.
 
-Currently the GameInterface class of the program is creating some characters, weapons and items and demonstrating the functionality by printing them out.
+Currently the Main class of the program is creating some heroes, weapons and armor and demonstrating the functionality by calling functions and printing them out.
 
 ## Usage
-To construct a new hero (replace Heroes.Mage with Heroes.Warrior, Heroes.Ranger or Heroes.Rogue):
+To construct a new hero (replace Mage with Warrior, Ranger or Rogue):
 ```java
-Heroes.Mage mage = new Heroes.Mage(String name);
+Mage myMage = new Mage("Gandalf");
 ```
-to construct new Items.Weapon (replace RangedWeapon with MeleeWeapon / MagicWeapon)
+To construct a new Weapon (replace WeaponType.WAND with AXE, BOW, SWORD, etc.):
 ```java
-RangedWeapon rangedWeapon = new RangedWeapon(String name, int level);
+Weapon fireWand = new Weapon("Fire Wand", WeaponType.WAND, 10, 6);
 ```
-To construct a new Items.Armor piece (replace PlateArmor with ClothArmor / LeatherArmor and Slot.LEGS with Slot.BODY/HEAD)
+To construct a new Armor piece (replace ArmorType.CLOTH with PLATE, LEATHER or MAIL, and replace Slot.HEAD with BODY or LEGS):
 ```java
-ClothArmor clothLeggings = new ClothArmor(String name, int level, EquipmentSlot.LEGSLOT);
+Armor clothHat = new Armor("Cloth Hat", ArmorType.CLOTH, 20, Slot.HEAD, 5, 5, 10);
 ```
 
 

@@ -1,0 +1,6 @@
+package Heroes;
+
+
+class WarriorTest {
+
+}
