@@ -1,10 +1,17 @@
 # RPGHeroes
+[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+
 Noroff Java Fullstack RPG Heroes assignment. Java program imitating RPG game character and item functionality.
 
 ## Table of Contents
 
 - [About](#about)
 - [Usage](#usage)
+- [Maintainers](#maintainers)
+- [Contributing](#contributing)
+- [License](#license)
+
+
 
 ## About
 The program has functionality to construct armors, weapons and heroes. 4 different hero classes are implemented: Mage, Ranger, Rogue and Warrior. Every hero has attributes such as Strength, Dexterity and Intelligence, which increase when leveling up.
@@ -32,7 +39,17 @@ To construct a new Armor piece (replace ArmorType.CLOTH with PLATE, LEATHER or M
 Armor clothHat = new Armor("Cloth Hat", ArmorType.CLOTH, 20, Slot.HEAD, 5, 5, 10);
 ```
 
+## Maintainers
+[@HessianThespian](https://gitlab.com/HessianThespian)
 
+## Contributing
 
+PRs accepted.
+
+Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
+
+## License
+
+[MIT © Adrian Friduson.](../LICENSE)
 
 
