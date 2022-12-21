@@ -6,10 +6,6 @@ import java.util.HashSet;
 import Enums.*;
 import Exceptions.*;
 import Items.*;
-import Heroes.Hero;
-import Heroes.HeroAttribute;
-import Heroes.Mage;
-import Heroes.Rogue;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -195,5 +191,33 @@ class HeroTest {
         double expected = 5.0 * (1.0 + (5.0 / 100.0));
         double actual = hero.damage();
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void Hero_InvalidWeaponExceptionTest_ShouldThrow() {
+    Hero hero = new Mage("Magic Jake");
+    Weapon rustySword = new Weapon("Rusty Sword", WeaponType.SWORD, 1, 1);
+    assertThrows(InvalidWeaponException.class, () -> hero.equip(rustySword));
+    }
+
+    @Test
+    void Hero_InvalidWeaponExceptionTest_ShouldNotThrow() {
+        Hero hero = new Mage("Magic Jake");
+        Weapon staff = new Weapon("Magic Stick", WeaponType.STAFF, 5, 1);
+        assertDoesNotThrow(() -> hero.equip(staff));
+    }
+
+    @Test
+    void Hero_InvalidArmorExceptionTest_ShouldThrow() {
+        Hero hero = new Mage("Magic Jake");
+        Armor plateArmor = new Armor("Cloth Hat", ArmorType.PLATE, 1, Slot.BODY, 10, 0, 0);
+        assertThrows(InvalidArmorException.class, () -> hero.equip(plateArmor));
+    }
+
+    @Test
+    void Hero_InvalidArmorExceptionTest_ShouldNotThrow() {
+        Hero hero = new Mage("Magic Jake");
+        Armor clothHat = new Armor("Cloth Hat", ArmorType.CLOTH, 1, Slot.HEAD, 10, 0, 0);
+        assertDoesNotThrow(() -> hero.equip(clothHat));
     }
 }

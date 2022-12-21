@@ -15,13 +15,9 @@ public abstract class Hero {
     // Fields
     private final String name;
     private int level;
-
     private final HeroAttribute levelAttributes;
-
     private final HashMap<Slot, Item> equipment = new HashMap<>();
-
     private final HashSet<WeaponType> validWeaponTypes = new HashSet<>();
-
     private final HashSet<ArmorType> validArmorTypes = new HashSet<>();
 
     // Hero constructor
@@ -80,6 +76,7 @@ public abstract class Hero {
         }
     }
 
+    // This isn't working properly, not sure of the cause
     public void equip(Armor armor) throws InvalidArmorException {
         if (level >= armor.getRequiredLevel()) {
             if (!validArmorTypes.contains(armor.getArmorType())) {
