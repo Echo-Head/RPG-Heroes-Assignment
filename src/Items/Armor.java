@@ -7,7 +7,7 @@ import Heroes.HeroAttribute;
 public class Armor extends Item {
     private final HeroAttribute armorAttribute;
     private final ArmorType armorType;
-    // Items.Armor constructor
+    // Armor constructor
     public Armor(String itemName, ArmorType armorType, int requiredLevel, Slot slot, int strength, int dexterity, int intelligence) {
         super(itemName, requiredLevel, slot);
         this.armorType = armorType;
