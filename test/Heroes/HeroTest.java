@@ -52,7 +52,7 @@ class HeroTest {
     }
 
     @Test
-    void Hero_GetEquipmentTest_FilledSlots() throws InvalidWeaponException {
+    void Hero_GetEquipmentTest_FilledSlot() throws InvalidWeaponException {
         Hero hero = new Rogue("Jerma");
         Weapon weapon = new Weapon("Cool Sword", WeaponType.SWORD, 1, 1);
         HashMap<Object, Object> expected = new HashMap<>();
@@ -80,8 +80,8 @@ class HeroTest {
     @Test
     void Hero_GetTotalAttributesTest_With_OneArmorPiece() throws InvalidArmorException {
         Hero hero = new Rogue("Guy");
-        Armor armor = new Armor("Leather Boots", ArmorType.LEATHER, 1, Slot.LEGS, 10, 10, 10);
-        hero.equip(armor);
+        Armor myArmor = new Armor("Leather Cuirass", ArmorType.LEATHER, 1, Slot.BODY, 10, 10, 10);
+        hero.equip(myArmor);
         HeroAttribute actualAttributes = hero.getTotalAttributes();
         int actualStrength = actualAttributes.getStrength();
         int actualDexterity = actualAttributes.getDexterity();

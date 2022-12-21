@@ -4,6 +4,7 @@ import Enums.WeaponType;
 import Enums.Slot;
 
 public class Weapon extends Item {
+    // Fields
     private final int weaponDamage;
     private final WeaponType weaponType;
     // Weapon constructor

@@ -1,7 +1,7 @@
 package Heroes;
 
 public class HeroAttribute {
-    // Variables
+    // Fields
     private int strength;
     private int dexterity;
     private int intelligence;

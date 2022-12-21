@@ -5,6 +5,7 @@ import Enums.Slot;
 import Heroes.HeroAttribute;
 
 public class Armor extends Item {
+    // Fields
     private final HeroAttribute armorAttribute;
     private final ArmorType armorType;
     // Armor constructor
