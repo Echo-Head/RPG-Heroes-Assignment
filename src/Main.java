@@ -15,9 +15,6 @@ public class Main {
 
         // Classes
         Mage myMage = new Mage("Gandalf");
-        Warrior warrior = new Warrior("Aragorn");
-        Rogue rogue = new Rogue("Frodo");
-        Ranger ranger = new Ranger("Legolas");
 
         // Armor
         Armor chestPlate = new Armor("Chest Plate", ArmorType.PLATE, 20, Slot.BODY, 10, 5, 9);
@@ -34,9 +31,8 @@ public class Main {
         Weapon wand = new Weapon("Wand", WeaponType.WAND, 10, 6);
         Weapon bow = new Weapon("Bow", WeaponType.BOW, 11, 7);
 
-        myMage.equip(wand);
-        myMage.equip(clothHat);
+        myMage.equip(bow);
+        myMage.equip(chainMail);
         myMage.display();
-        System.out.println(myMage.getEquipment());
         }
 }

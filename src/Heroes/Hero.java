@@ -54,15 +54,13 @@ public abstract class Hero {
 
     public HeroAttribute getTotalAttributes() {
         HeroAttribute totalAttribute = new HeroAttribute(levelAttributes.getStrength(), levelAttributes.getDexterity(), levelAttributes.getIntelligence());
-        for (Map.Entry<Slot, Item> entry : equipment.entrySet()) {
-            Slot slot = entry.getKey();
-            Item item = entry.getValue();
+        equipment.forEach(((slot, item) -> {
             if (slot != Slot.WEAPON && slot != null && item != null) {
                 Armor armor = (Armor) item;
                 HeroAttribute attribute = armor.getArmorAttribute();
                 totalAttribute.addAttribute(attribute.getStrength(), attribute.getDexterity(), attribute.getIntelligence());
             }
-        }
+        }));
         return totalAttribute;
     }
 
@@ -110,10 +108,10 @@ public abstract class Hero {
         heroDisplay.append("Name: " + getName() + "\n");
         heroDisplay.append("Class: " + getClass().getSimpleName() + "\n");
         heroDisplay.append("Level: " + getLevel() + "\n");
-        heroDisplay.append("Current Equipment: " + getEquipment() + "\n");
         heroDisplay.append("Total Strength: " + getTotalAttributes().getStrength() + "\n");
         heroDisplay.append("Total Dexterity: " + getTotalAttributes().getDexterity() + "\n");
         heroDisplay.append("Total Intelligence: " + getTotalAttributes().getIntelligence() + "\n");
+        heroDisplay.append("Current Equipment: " + getEquipment() + "\n");
         heroDisplay.append("Damage: " + damage());
         System.out.println(heroDisplay.toString());
     }
