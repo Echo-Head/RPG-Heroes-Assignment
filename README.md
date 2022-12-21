@@ -19,13 +19,15 @@ The program has functionality to construct armors, weapons and heroes. 4 differe
 The program has implementation for 4 different armor types: Cloth, Leather, Mail and Plate armors.
 Armors can be assigned to either the Head, Body or Legs slot.
 
-Currently there are also 7 different weapon types: Axe, Bow, Dagger, Hammer, Staff, Sword and Wand. Every weapon has a level requirement and damage attribute.
+There are also 7 different weapon types: Axe, Bow, Dagger, Hammer, Staff, Sword and Wand. Every weapon has a level requirement and damage attribute.
 
 The Armor and Weapon classes inherit from an abstract Items class. Hero classes (Mage, Ranger, Rogue, Warrior) inherit from an abstract Hero class. There is currently functionality for creating items, creating heroes, equipping armors and weapons to heroes and leveling up.
 
-Currently the Main class of the program is creating some heroes, weapons and armor and demonstrating the functionality by calling functions and printing them out.
+Currently the Main class of the program is creating some heroes, weapons and armor and demonstrating the functionality by calling functions and displaying the hero.
 
 ## Usage
+This program was made using IntelliJ IDEA and is the recommended software to use to run it.
+
 To construct a new hero (replace Mage with Warrior, Ranger or Rogue):
 ```java
 Mage myMage = new Mage("Gandalf");
